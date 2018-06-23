@@ -15,6 +15,7 @@ class POS constructor(val TAX_RATE: Double = 0.07) { //default tax rate is actua
      * the Main class. Stuff that would make the Main class look all
      * ugly.
      */
+    val posList = ArrayList<Register>()
     fun taxCalc(transaction: ArrayList<Item>): Double {
         /**
          * taxCalc: Returns the amout of sales tax applied to the order.
@@ -137,8 +138,14 @@ class POS constructor(val TAX_RATE: Double = 0.07) { //default tax rate is actua
             "TEST" -> {
                 ret += "200 OK Tennerv0.9s"
             }
-            "POST" -> {
-                ret += "250 SEND Tennerv0.9s"
+            "BOOT" -> {
+
+            }
+            "REGISTER" -> {
+                val terms = File("terms.txt")
+                //TODO: Figure out how the fuck we're gonna store the list of registered POS systems, I'm too tired for this shite
+                ret += "200 OK Tenner v0.9s"
+
             }
         }
         return ret
